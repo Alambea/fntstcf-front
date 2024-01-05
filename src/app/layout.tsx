@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import React, { PropsWithChildren } from "react";
 import { Oswald } from "next/font/google";
-import "./globals.css";
+import "./styles/styles.scss";
 
 const inter = Oswald({ subsets: ["latin"] });
 
