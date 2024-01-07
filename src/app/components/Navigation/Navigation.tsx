@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { paths } from "../../routers/paths";
 import "./Navigation.scss";
 
 const Navigation = (): React.ReactElement => {
@@ -14,9 +15,9 @@ const Navigation = (): React.ReactElement => {
         <li>
           <Link
             className={`navigation__link ${
-              pathname === "/users" ? "active" : ""
+              pathname === paths.users ? "active" : ""
             }`}
-            href="/users"
+            href={paths.users}
           >
             Users
           </Link>
@@ -24,9 +25,9 @@ const Navigation = (): React.ReactElement => {
         <li>
           <Link
             className={`navigation__link ${
-              pathname === "/add-user" ? "active" : ""
+              pathname === paths.addUser ? "active" : ""
             }`}
-            href="/add-user"
+            href={paths.addUser}
           >
             Add User
           </Link>

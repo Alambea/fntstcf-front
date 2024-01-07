@@ -1,5 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import Navigation from "./Navigation";
+import { vi } from "vitest";
+
+vi.mock("next/navigation", () => {
+  const actual = vi.importActual("next/navigation");
+  const pathname = "/users";
+  return {
+    ...actual,
+    usePathname: vi.fn().mockReturnValue(pathname),
+  };
+});
 
 describe("Given a Navigation component", () => {
   describe("When it's rendered", () => {
