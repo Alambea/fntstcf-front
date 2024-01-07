@@ -1,17 +1,14 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
-import { paths } from "./routers/paths";
+import React from "react";
+import "./page.scss";
 
 const Home = (): React.ReactElement => {
-  const { replace } = useRouter();
-
-  useEffect(() => {
-    replace(paths.users);
-  });
-
-  return <></>;
+  return (
+    <main className="users-content">
+      <h1 className="users-content__title">Users control</h1>
+    </main>
+  );
 };
 
 export default Home;

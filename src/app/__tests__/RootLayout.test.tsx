@@ -3,7 +3,7 @@ import { userEvent } from "@testing-library/user-event";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { vi } from "vitest";
 import RootLayout from "../layout";
-import UsersPage from "../users/page";
+import Home from "../page";
 
 vi.mock("next/font/google", () => ({
   Oswald: vi.fn().mockReturnValue({} as NextFont),
@@ -41,7 +41,7 @@ describe("Given a RootLayout component", () => {
 
       render(
         <RootLayout>
-          <UsersPage />
+          <Home />
         </RootLayout>,
       );
 

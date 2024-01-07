@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import UsersPage from "./page";
+import Home from "../page";
 
-describe("Given a Header component", () => {
+describe("Given a Home component", () => {
   describe("When it's redered", () => {
     test("Then it should show a heading 'Users Control'", () => {
       const expectedHeading = /users control/i;
 
-      render(<UsersPage />);
+      render(<Home />);
 
       const heading = screen.getByRole("heading", {
         level: 1,
