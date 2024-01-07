@@ -1,4 +1,3 @@
-
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -6,10 +5,6 @@ module.exports = {
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    // "plugin:react/recommended",
-    // "plugin:react/jsx-runtime",
-    // "plugin:react-hooks/recommended",
-    // "plugin:jsx-a11y/recommended",
   ],
   ignorePatterns: ["*.js", "*.cjs"],
   parser: "@typescript-eslint/parser",
