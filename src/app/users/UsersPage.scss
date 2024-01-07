@@ -1,0 +1,15 @@
+@use "../styles/variables/colors";
+
+.users-content {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  background-color: colors.$font-color-text-dark;
+  padding: 20px;
+
+  &__title {
+    justify-content: center;
+    font-size: 26px;
+    color: colors.$font-color-text-light;
+  }
+}
