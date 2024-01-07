@@ -7,24 +7,35 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest run --passWithNoTests",
+    "test:dev": "vitest",
+    "test:coverage": "vitest run --coverage --passWithNoTests"
   },
   "dependencies": {
     "next": "14.0.4",
     "prettier": "^3.1.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "uninstall": "^0.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "eslint-plugin-react-refresh": "^0.4.5",
     "husky": "^8.0.0",
+    "jsdom": "^23.1.0",
     "sass": "^1.69.7",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.3"
   }
 }
