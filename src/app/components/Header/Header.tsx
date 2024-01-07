@@ -8,7 +8,7 @@ const Header = (): React.ReactElement => {
   return (
     <header className="header">
       <div className="header__brand-container">
-        <Link href="/" aria-label="Go to table of users">
+        <Link href="/users" aria-label="Go to table of users">
           <Image alt="Fantasticfy logo" width="50" height="50" src={logo} />
         </Link>
         <h1 className="header__title">Userfy</h1>

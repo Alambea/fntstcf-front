@@ -13,8 +13,10 @@ const Navigation = (): React.ReactElement => {
       <ul className="navigation__link-list">
         <li>
           <Link
-            className={`navigation__link ${pathname === "/" ? "active" : ""}`}
-            href="/"
+            className={`navigation__link ${
+              pathname === "/users" ? "active" : ""
+            }`}
+            href="/users"
           >
             Users
           </Link>
