@@ -1,0 +1,22 @@
+@use "../../styles/variables/colors";
+
+.navigation {
+  display: flex;
+  align-items: center;
+
+  &__link-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    color: colors.$font-color-text-light;
+    font-weight: 400;
+  }
+
+  .active {
+    color: colors.$font-color-heading;
+  }
+}
