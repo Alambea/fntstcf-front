@@ -1,7 +1,7 @@
 import "dotenv/config";
 import axios from "axios";
 import { UsersApiClientStructure } from "./types";
-import { User } from "../../types";
+import { User } from "../../../../types";
 
 class UsersApiClient implements UsersApiClientStructure {
   constructor() {

@@ -1,8 +1,8 @@
 "use client";
 
 import { PropsWithChildren, useCallback, useMemo, useState } from "react";
-import useUsers from "../../hooks/useUsers/useUsers";
-import { User } from "../../types";
+import useUsers from "../../../features/users/hooks/useUsers/useUsers";
+import { User } from "../../../types";
 import UsersContext from "./UsersContext";
 import { UsersContextStructure } from "./types";
 
