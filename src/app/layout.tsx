@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Oswald } from "next/font/google";
 import React, { PropsWithChildren, Suspense } from "react";
 import Header from "./components/Header/Header";
-import UsersContextProvider from "./features/users/store/context/UsersContextProvider";
 import "./styles/styles.scss";
 import Loading from "./components/Loading/loading";
+import UsersContextProvider from "./store/users/context/UsersContextProvider";
 
 const oswald = Oswald({ subsets: ["latin"] });
 

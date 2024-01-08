@@ -1,7 +1,7 @@
 import { Kumar_One_Outline as KumarOneOutlined } from "next/font/google";
-import "./UsersTable.scss";
 import { useContext } from "react";
-import UsersContext from "../../features/users/store/context/UsersContext";
+import UsersContext from "../../store/users/context/UsersContext";
+import "./UsersTable.scss";
 
 const bungee = KumarOneOutlined({ subsets: ["latin"], weight: ["400"] });
 
