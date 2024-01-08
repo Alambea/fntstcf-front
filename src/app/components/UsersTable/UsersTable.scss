@@ -1,0 +1,49 @@
+@use "../../styles/variables/colors";
+@use "../../styles/utils";
+
+.users-table {
+  width: 100%;
+  max-width: 750px;
+
+  &__title {
+    justify-content: center;
+    text-align: left;
+    font-weight: 200;
+    color: colors.$font-color-text-light;
+    caption-side: bottom;
+    padding: 20px 7%;
+  }
+
+  &__head {
+    text-align: left;
+    color: colors.$font-color-heading;
+  }
+
+  &__row {
+    height: 75px;
+
+    :first-child {
+      text-align: center;
+      height: 75px;
+    }
+  }
+
+  &__number {
+    text-align: center;
+    font-size: utils.pxToRem(20);
+    color: colors.$font-color-heading;
+    border-bottom: 1px solid colors.$font-color-heading;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    border-bottom: 1px solid colors.$font-color-heading;
+  }
+
+  &__other,
+  &__footer-cell,
+  &__name {
+    color: colors.$font-color-text-light;
+    border-bottom: 1px solid colors.$font-color-heading;
+  }
+}

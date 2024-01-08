@@ -1,3 +1,5 @@
+@use "./variables/colors";
+
 *,
 ::before,
 ::after {
@@ -7,6 +9,7 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: colors.$font-color-text-dark;
 }
 
 h1,
