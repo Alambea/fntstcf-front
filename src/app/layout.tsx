@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Oswald } from "next/font/google";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, Suspense } from "react";
 import Header from "./components/Header/Header";
 import UsersContextProvider from "./features/users/store/context/UsersContextProvider";
 import "./styles/styles.scss";
+import Loading from "./components/Loading/loading";
 
 const oswald = Oswald({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ const RootLayout = ({ children }: RootLayoutProps): React.ReactElement => {
     <html lang="en">
       <body className={oswald.className}>
         <Header />
-        <UsersContextProvider>{children}</UsersContextProvider>
+        <UsersContextProvider>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </UsersContextProvider>
       </body>
     </html>
   );

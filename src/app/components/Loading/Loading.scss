@@ -1,0 +1,44 @@
+@use "../../styles/variables/colors";
+@use "../../styles/utils";
+
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: rgba(colors.$color-primary-light, 0.7);
+}
+
+@media (prefers-reduced-motion) {
+  .loading:after {
+    content: "Loading ...";
+    display: flex;
+    justify-content: center;
+    font-size: utils.pxToRem(20);
+    color: colors.$font-color-heading;
+    width: 200px;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid colors.$font-color-heading;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
