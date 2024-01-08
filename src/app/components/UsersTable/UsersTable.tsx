@@ -1,11 +1,13 @@
 import { Kumar_One_Outline as KumarOneOutlined } from "next/font/google";
-import { users } from "../../data/data";
 import "./UsersTable.scss";
+import { useContext } from "react";
+import UsersContext from "../../features/users/store/context/UsersContext";
 
 const bungee = KumarOneOutlined({ subsets: ["latin"], weight: ["400"] });
 
 const UsersTable = (): React.ReactElement => {
-  const usersData = users;
+  const { users } = useContext(UsersContext);
+
   return (
     <table className="users-table">
       <caption className="users-table__title">Users control data </caption>
@@ -18,7 +20,7 @@ const UsersTable = (): React.ReactElement => {
         </tr>
       </thead>
       <tbody className="users-table__body">
-        {usersData.map((user, userPosition) => (
+        {users.map((user, userPosition) => (
           <tr key={user._id} className="users-table__row">
             <td className={`users-table__number ${bungee.className}`}>
               {userPosition + 1}
