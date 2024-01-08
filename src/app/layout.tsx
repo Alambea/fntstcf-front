@@ -4,7 +4,7 @@ import { Oswald } from "next/font/google";
 import Header from "./components/Header/Header";
 import "./styles/styles.scss";
 
-const inter = Oswald({ subsets: ["latin"] });
+const oswald = Oswald({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Userfy user control",
@@ -16,7 +16,7 @@ interface RootLayoutProps extends PropsWithChildren {}
 const RootLayout = ({ children }: RootLayoutProps): React.ReactElement => {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={oswald.className}>
         <Header />
         {children}
       </body>
