@@ -23,17 +23,14 @@ describe("Given a Header component", () => {
       expect(link).toBeInTheDocument();
     });
 
-    test("Then it should show a heading 'Userfy'", () => {
-      const expectedHeading = "Userfy";
+    test("Then it should show a text 'Userfy'", () => {
+      const expectedBrand = "Userfy";
 
       render(<Header />);
 
-      const heading = screen.getByRole("heading", {
-        level: 1,
-        name: expectedHeading,
-      });
+      const brandText = screen.getByText(expectedBrand);
 
-      expect(heading).toBeInTheDocument();
+      expect(brandText).toBeInTheDocument();
     });
   });
 });

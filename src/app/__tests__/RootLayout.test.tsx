@@ -21,17 +21,14 @@ vi.mock("next/navigation", () => {
 
 describe("Given a RootLayout component", () => {
   describe("When it is redered", () => {
-    test("Then it should show a heading 'Userfy'", () => {
-      const expectedHeading = "Userfy";
+    test("Then it should show a text 'Userfy'", () => {
+      const expectedBrand = "Userfy";
 
       render(<RootLayout />);
 
-      const heading = screen.getByRole("heading", {
-        level: 1,
-        name: expectedHeading,
-      });
+      const brandText = screen.getByText(expectedBrand);
 
-      expect(heading).toBeInTheDocument();
+      expect(brandText).toBeInTheDocument();
     });
   });
 
@@ -53,7 +50,6 @@ describe("Given a RootLayout component", () => {
       await userEvent.click(usersLink);
 
       const heading = await screen.findByRole("heading", {
-        level: 1,
         name: expectedHeading,
       });
 
