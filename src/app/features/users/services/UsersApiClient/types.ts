@@ -1,4 +1,4 @@
-import { User } from "../../../../data/types";
+import { User } from "../../types";
 
 export interface UsersApiClientStructure {
   getUsers(): Promise<User[]>;
