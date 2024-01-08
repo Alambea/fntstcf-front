@@ -7,6 +7,7 @@ import UsersPage from "../users/page";
 
 vi.mock("next/font/google", () => ({
   Oswald: vi.fn().mockReturnValue({} as NextFont),
+  Kumar_One_Outline: vi.fn().mockReturnValue({} as NextFont),
 }));
 
 vi.mock("next/navigation", () => {
