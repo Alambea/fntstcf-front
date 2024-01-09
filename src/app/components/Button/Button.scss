@@ -1,0 +1,15 @@
+@use "../../styles/variables/colors";
+@use "../../styles/utils";
+
+.button {
+  padding: 15px 40px;
+  color: colors.$font-color-heading;
+  font-size: utils.pxToRem(16);
+  text-transform: uppercase;
+  background-color: colors.$color-main-background;
+  border: 1px solid colors.$font-color-heading;
+
+  &:disabled {
+    background-color: colors.$color-primary-light;
+  }
+}
