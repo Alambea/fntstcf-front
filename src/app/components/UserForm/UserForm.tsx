@@ -1,7 +1,31 @@
+"use client";
+
+import { useState } from "react";
 import Button from "../Button/Button";
+import { UserAdress } from "../../types";
 import "./UserForm.scss";
 
 const UserForm = (): React.ReactElement => {
+  const initialUser: UserAdress = {
+    name: "",
+    username: "",
+    email: "",
+    address: "",
+  };
+
+  const [user, setUser] = useState<UserAdress>(initialUser);
+
+  const updateUser = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    setUser((user) => ({
+      ...user,
+      [event.target.id]: event.target.value,
+    }));
+  };
+
   return (
     <form className="user-form">
       <div className="user-form__group">
@@ -12,6 +36,8 @@ const UserForm = (): React.ReactElement => {
           type="text"
           id="name"
           className="user-form__input"
+          value={user.name}
+          onChange={updateUser}
           aria-required="true"
         />
       </div>
@@ -23,6 +49,8 @@ const UserForm = (): React.ReactElement => {
           type="text"
           id="username"
           className="user-form__input"
+          value={user.username}
+          onChange={updateUser}
           aria-required="true"
         />
       </div>
@@ -34,6 +62,8 @@ const UserForm = (): React.ReactElement => {
           type="email"
           id="email"
           className="user-form__input"
+          value={user.email}
+          onChange={updateUser}
           aria-required="true"
         />
       </div>
@@ -46,6 +76,8 @@ const UserForm = (): React.ReactElement => {
           type="text"
           id="address"
           className="user-form__input"
+          value={user.address}
+          onChange={updateUser}
           aria-required="true"
         />
       </div>
