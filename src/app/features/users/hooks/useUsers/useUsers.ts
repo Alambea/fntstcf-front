@@ -21,6 +21,8 @@ const useUsers = () => {
       try {
         const user = await studentsApiClient.addUser(newUser);
 
+        toast.success("User successfully added");
+
         return user;
       } catch {
         toast.error("Failed to add user");

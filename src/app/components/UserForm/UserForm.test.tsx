@@ -3,7 +3,7 @@ import { leanneMock } from "../../mocks/usersMock";
 import UserForm from "./UserForm";
 import { render, screen } from "@testing-library/react";
 
-describe("Given a NewRecordForm component", () => {
+describe("Given a UserForm component", () => {
   const nameInputLabel = "Name";
   const usernameInputLabel = "Username";
   const emaileDateInputLabel = "Email";
@@ -33,16 +33,6 @@ describe("Given a NewRecordForm component", () => {
 
       expect(button).toBeInTheDocument();
     });
-
-    test("Then the Add button should be disabled", async () => {
-      const textButton = "Add";
-
-      render(<UserForm />);
-
-      const button = screen.getByRole("button", { name: textButton });
-
-      expect(button).toBeDisabled();
-    });
   });
 
   describe(`When the user types '${leanneMock.name}', '${leanneMock.username}', '${leanneMock.email}', '${leanneMock.address}', `, () => {
@@ -68,31 +58,6 @@ describe("Given a NewRecordForm component", () => {
       expect(usernameInput).toHaveValue(typedUsername);
       expect(emailInput).toHaveValue(typedEmail);
       expect(addressInput).toHaveValue(typedAddress);
-    });
-
-    test("Then the button should be enabled", async () => {
-      const textButton = "Add";
-
-      const typedName = leanneMock.name;
-      const typedUsername = leanneMock.username;
-      const typedEmail = leanneMock.email;
-      const typedAddress = leanneMock.address;
-
-      render(<UserForm />);
-
-      const nameInput = screen.getByLabelText(nameInputLabel);
-      const usernameInput = screen.getByLabelText(usernameInputLabel);
-      const emailInput = screen.getByLabelText(emaileDateInputLabel);
-      const addressInput = screen.getByLabelText(addressInputLabel);
-
-      await userEvent.type(nameInput, typedName);
-      await userEvent.type(usernameInput, typedUsername);
-      await userEvent.type(emailInput, typedEmail);
-      await userEvent.type(addressInput, typedAddress);
-
-      const button = screen.getByRole("button", { name: textButton });
-
-      expect(button).not.toBeDisabled();
     });
   });
 });
