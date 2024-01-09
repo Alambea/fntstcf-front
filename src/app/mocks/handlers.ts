@@ -10,3 +10,7 @@ export const handlers: HttpHandler[] = [
     HttpResponse.json({ users: usersMock }),
   ),
 ];
+
+export const errorHandlers: HttpHandler[] = [
+  http.get(`${apiUrl}${paths.users}`, () => HttpResponse.error()),
+];
