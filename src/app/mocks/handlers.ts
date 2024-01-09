@@ -16,4 +16,5 @@ export const handlers: HttpHandler[] = [
 
 export const errorHandlers: HttpHandler[] = [
   http.get(`${apiUrl}${paths.users}`, () => HttpResponse.error()),
+  http.put(`${apiUrl}${paths.users}`, () => HttpResponse.error()),
 ];
