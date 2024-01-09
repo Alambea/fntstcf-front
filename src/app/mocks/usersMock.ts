@@ -1,4 +1,4 @@
-import { User } from "../types";
+import { User, UserAdress } from "../types";
 
 export const usersMock: User[] = [
   {
@@ -14,3 +14,10 @@ export const usersMock: User[] = [
     email: "Shanna@melissa.tv",
   },
 ];
+
+export const leanneMock: UserAdress = {
+  name: "Leanne Graham",
+  username: "Bret",
+  email: "Sincere@april.biz",
+  address: "Address example",
+};
