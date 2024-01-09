@@ -1,11 +1,7 @@
-import "./AddUserPage.scss";
+import AddUserPage from "../pages/AddUserPage/AddUserPage";
 
-const AddUsersPage = (): React.ReactElement => {
-  return (
-    <main className="add-user-content">
-      <h1 className="add-user-content__title">Add a new user</h1>
-    </main>
-  );
+const AddUserRouter = (): React.ReactElement => {
+  return <AddUserPage />;
 };
 
-export default AddUsersPage;
+export default AddUserRouter;

@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
-import UsersPage from "./page";
+import UsersRouter from "../../users/page";
 import { vi } from "vitest";
 import { NextFont } from "next/dist/compiled/@next/font";
-import { customRender } from "../testUtils/customRender";
+import { customRender } from "../../testUtils/customRender";
 
 vi.mock("next/font/google", () => ({
   Kumar_One_Outline: vi.fn().mockReturnValue({} as NextFont),
@@ -13,7 +13,7 @@ describe("Given a Header component", () => {
     test("Then it should show a heading 'Users Control'", () => {
       const expectedHeading = /users control/i;
 
-      customRender(<UsersPage />);
+      customRender(<UsersRouter />);
 
       const heading = screen.getByRole("heading", {
         level: 1,
