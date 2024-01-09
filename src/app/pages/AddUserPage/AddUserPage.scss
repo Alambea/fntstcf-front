@@ -1,7 +1,7 @@
-@use "../styles/variables/colors";
-@use "../styles/utils";
+@use "../../styles/variables/colors";
+@use "../../styles/utils";
 
-.users-content {
+.add-user-content {
   display: flex;
   flex-direction: column;
   align-items: center;
