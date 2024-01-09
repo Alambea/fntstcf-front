@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { UserAdress } from "../../types";
 import "./UserForm.scss";
 
 const UserForm = (): React.ReactElement => {
+  const [isDisabled, setIsDisabled] = useState(false);
+
   const initialUser: UserAdress = {
     name: "",
     username: "",
@@ -25,6 +27,14 @@ const UserForm = (): React.ReactElement => {
       [event.target.id]: event.target.value,
     }));
   };
+
+  useEffect(() => {
+    setIsDisabled(
+      Object.values(user).every((value) => {
+        return Boolean(value);
+      }),
+    );
+  }, [user]);
 
   return (
     <form className="user-form">
@@ -81,7 +91,7 @@ const UserForm = (): React.ReactElement => {
           aria-required="true"
         />
       </div>
-      <Button type="submit" className="outlined" disabled>
+      <Button type="submit" className="outlined" disabled={!isDisabled}>
         Add
       </Button>
     </form>
