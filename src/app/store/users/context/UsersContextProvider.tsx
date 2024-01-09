@@ -14,7 +14,10 @@ const UsersContextProvider = ({
 
   const loadUsers = useCallback(async () => {
     const apiUsers = await getUsers();
-    setUsers([...apiUsers]);
+
+    if (apiUsers) {
+      setUsers([...apiUsers]);
+    }
   }, [getUsers]);
 
   const usersContextValue = useMemo(
