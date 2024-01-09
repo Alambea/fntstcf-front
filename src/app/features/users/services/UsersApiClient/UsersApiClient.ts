@@ -1,7 +1,7 @@
 import "dotenv/config";
 import axios from "axios";
 import { UsersApiClientStructure } from "./types";
-import { User } from "../../../../types";
+import { User, UserAdress } from "../../../../types";
 
 class UsersApiClient implements UsersApiClientStructure {
   constructor() {
@@ -14,6 +14,14 @@ class UsersApiClient implements UsersApiClientStructure {
     } = await axios.get<{ users: User[] }>("/users");
 
     return users;
+  }
+
+  async addUser(newUser: UserAdress): Promise<User> {
+    const {
+      data: { user },
+    } = await axios.put<{ user: User }>("/users", newUser);
+
+    return user;
   }
 }
 
