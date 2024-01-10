@@ -1,17 +1,19 @@
 import userEvent from "@testing-library/user-event";
 import { leanneMock } from "../../mocks/usersMock";
-import UserForm from "./UserForm";
 import { render, screen } from "@testing-library/react";
+import UserForm from "./UserForm";
+import { vi } from "vitest";
 
 describe("Given a UserForm component", () => {
   const nameInputLabel = "Name";
   const usernameInputLabel = "Username";
   const emaileDateInputLabel = "Email";
   const addressInputLabel = "Address";
+  const actionOnSubmit = vi.fn();
 
   describe("When it's rendered", () => {
     test("Then it should show an 'Name', 'Username', 'Email', 'Address' labels", async () => {
-      render(<UserForm />);
+      render(<UserForm actionOnSubmit={actionOnSubmit} />);
 
       const nameInput = screen.getByLabelText(nameInputLabel);
       const usernameInput = screen.getByLabelText(usernameInputLabel);
@@ -27,7 +29,7 @@ describe("Given a UserForm component", () => {
     test("Then it should show a button with the text 'Add'", async () => {
       const expectedButtonText = "Add";
 
-      render(<UserForm />);
+      render(<UserForm actionOnSubmit={actionOnSubmit} />);
 
       const button = screen.getByRole("button", { name: expectedButtonText });
 
@@ -42,7 +44,7 @@ describe("Given a UserForm component", () => {
       const typedEmail = leanneMock.email;
       const typedAddress = leanneMock.address;
 
-      render(<UserForm />);
+      render(<UserForm actionOnSubmit={actionOnSubmit} />);
 
       const nameInput = screen.getByLabelText(nameInputLabel);
       const usernameInput = screen.getByLabelText(usernameInputLabel);
