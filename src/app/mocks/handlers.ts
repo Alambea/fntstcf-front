@@ -12,6 +12,9 @@ export const handlers: HttpHandler[] = [
   http.put(`${apiUrl}${paths.users}`, () =>
     HttpResponse.json({ user: leanneMock }),
   ),
+  http.post(`${apiUrl}${paths.sync}`, () =>
+    HttpResponse.json({ users: usersMock }),
+  ),
 ];
 
 export const errorHandlers: HttpHandler[] = [
