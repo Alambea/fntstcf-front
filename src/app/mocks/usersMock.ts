@@ -21,3 +21,13 @@ export const leanneMock: UserAdress = {
   email: "Sincere@april.biz",
   address: "Address example",
 };
+
+export const syncUsersMock: User[] = [
+  ...usersMock,
+  {
+    _id: "7587311f918836cd309ff5t6",
+    name: "Glenna Reichert",
+    username: "Delphine",
+    email: "Chaim_McDermott",
+  },
+];

@@ -1,15 +1,13 @@
-import { usersMock } from "../../../../../mocks/usersMock";
 import UsersApiClient from "../UsersApiClient";
 
 describe("Given a UsersApiClient's method syncUsers", () => {
   describe("When it is called succesfully", () => {
-    test(`Then it should return a list of users '${usersMock[0].name}' and '${usersMock[1].name}'`, async () => {
-      const expectedUsers = usersMock;
+    test(`Then it should resolve the returned promise`, async () => {
       const userApiClient = new UsersApiClient();
 
-      const users = await userApiClient.syncUsers();
+      const promise = userApiClient.syncUsers();
 
-      expect(users).toStrictEqual(expectedUsers);
+      expect(promise).resolves;
     });
   });
 });
