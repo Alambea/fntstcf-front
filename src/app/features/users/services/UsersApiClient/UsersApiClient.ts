@@ -25,12 +25,8 @@ class UsersApiClient implements UsersApiClientStructure {
     return user;
   }
 
-  async syncUsers(): Promise<User[]> {
-    const {
-      data: { users },
-    } = await axios.post<{ users: User[] }>(paths.sync);
-
-    return users;
+  async syncUsers(): Promise<void> {
+    await axios.post<{ users: User[] }>(paths.sync);
   }
 }
 

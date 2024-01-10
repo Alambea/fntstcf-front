@@ -33,13 +33,11 @@ const useUsers = () => {
 
   const syncUsers = useCallback(async () => {
     try {
-      const users = await studentsApiClient.syncUsers();
+      await studentsApiClient.syncUsers();
 
       toast.success("Users successfully synchronized");
-
-      return users;
     } catch (error) {
-      toast.error("Failed to synchronize users");
+      throw new Error("Failed to synchronize users");
     }
   }, [studentsApiClient]);
 
