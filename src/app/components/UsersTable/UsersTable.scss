@@ -30,8 +30,9 @@
 
   &__number {
     text-align: center;
-    font-size: utils.pxToRem(20);
+    font-size: utils.pxToRem(18);
     color: colors.$font-color-heading;
+    min-width: 30px;
     border-bottom: 1px solid colors.$font-color-heading;
   }
 

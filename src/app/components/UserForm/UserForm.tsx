@@ -5,7 +5,11 @@ import Button from "../Button/Button";
 import { UserAdress } from "../../types";
 import "./UserForm.scss";
 
-const UserForm = (): React.ReactElement => {
+interface UserFormProps {
+  actionOnSubmit: (user: UserAdress) => void;
+}
+
+const UserForm = ({ actionOnSubmit }: UserFormProps): React.ReactElement => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const initialUser: UserAdress = {
@@ -28,6 +32,12 @@ const UserForm = (): React.ReactElement => {
     }));
   };
 
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    actionOnSubmit(user);
+  };
+
   useEffect(() => {
     setIsDisabled(
       Object.values(user).every((value) => {
@@ -37,7 +47,7 @@ const UserForm = (): React.ReactElement => {
   }, [user]);
 
   return (
-    <form className="user-form">
+    <form className="user-form" onSubmit={submitHandler}>
       <div className="user-form__group">
         <label htmlFor="name" className="user-form__label">
           Name
