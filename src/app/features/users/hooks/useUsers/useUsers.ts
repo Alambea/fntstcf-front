@@ -24,7 +24,7 @@ const useUsers = () => {
         toast.success("User successfully added");
 
         return user;
-      } catch {
+      } catch (error) {
         toast.error("Failed to add user");
       }
     },
