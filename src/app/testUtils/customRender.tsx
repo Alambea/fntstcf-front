@@ -8,11 +8,7 @@ import {
 } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export const customRender = (children: React.ReactElement): void => {
-  const router: Partial<AppRouterInstance> = {
-    refresh: vi.fn(),
-    prefetch: vi.fn(),
-  };
-
+  const router: Partial<AppRouterInstance> = { refresh: vi.fn() };
   const loadUsers = vi.fn();
   const addNewUser = vi.fn();
   const users = usersMock;

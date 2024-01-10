@@ -26,8 +26,8 @@ const UsersTable = (): React.ReactElement => {
               {userPosition + 1}
             </td>
             <td className="users-table__name">{user.name}</td>
-            <td className="users-table__other">{user.email}</td>
-            <td className="users-table__other">{user.username}</td>
+            <td className="users-table__email">{user.email}</td>
+            <td className="users-table__username">{user.username}</td>
           </tr>
         ))}
       </tbody>
