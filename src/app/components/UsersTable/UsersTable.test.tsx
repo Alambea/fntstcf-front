@@ -1,8 +1,8 @@
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { vi } from "vitest";
 import { usersMock } from "../../mocks/usersMock";
-import { customRender } from "../../testUtils/customRender";
+import { wrapper } from "../../testUtils/providerWrapper";
 import UsersTable from "./UsersTable";
 
 vi.mock("next/font/google", () => ({
@@ -14,7 +14,7 @@ describe("Given a UserTable component", () => {
     test("Then it should show column headeres with the texts 'Nº', 'Name', 'Email', 'Username'", () => {
       const expectedColumnHeaders = ["Nº", "Name", "Email", "Username"];
 
-      customRender(<UsersTable />);
+      render(<UsersTable />, { wrapper });
 
       expectedColumnHeaders.forEach((expectedColumnHeader) => {
         const columnHeader = screen.getByRole("columnheader", {
@@ -31,7 +31,7 @@ describe("Given a UserTable component", () => {
       const expectedEmail = usersData.email;
       const expectedUsername = usersData.username;
 
-      customRender(<UsersTable />);
+      render(<UsersTable />, { wrapper });
 
       const nameCell = screen.getByText(expectedName);
       const emailCell = screen.getByText(expectedEmail);

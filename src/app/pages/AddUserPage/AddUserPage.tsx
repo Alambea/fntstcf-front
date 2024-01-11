@@ -13,7 +13,6 @@ import "./AddUserPage.scss";
 const AddUserPage = (): React.ReactElement => {
   const { isLoading } = useContext(UiContext);
   const { addNewUser } = useContext(UsersContext);
-
   const router = useRouter();
 
   const actionOnSubmit = async (newUser: UserAdress) => {

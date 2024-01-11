@@ -5,6 +5,7 @@ import { vitest } from "vitest";
 import { server } from "../../../../../mocks/node";
 import { errorHandlers } from "../../../../../mocks/handlers";
 import { toast } from "react-toastify";
+import { wrapper } from "../../../../../testUtils/providerWrapper";
 
 describe("Given an getUsers function", () => {
   describe("When it's called succesfully", () => {
@@ -15,7 +16,7 @@ describe("Given an getUsers function", () => {
         result: {
           current: { getUsers },
         },
-      } = renderHook(() => useUsers());
+      } = renderHook(() => useUsers(), { wrapper });
 
       const users = await getUsers();
 
@@ -35,7 +36,7 @@ describe("Given an getUsers function", () => {
         result: {
           current: { getUsers },
         },
-      } = renderHook(() => useUsers());
+      } = renderHook(() => useUsers(), { wrapper });
 
       await getUsers();
 
