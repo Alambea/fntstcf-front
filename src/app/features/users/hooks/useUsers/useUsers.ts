@@ -1,20 +1,27 @@
-import { useCallback, useMemo } from "react";
-import UsersApiClient from "../../services/UsersApiClient/UsersApiClient";
+import { useCallback, useContext, useMemo } from "react";
 import { toast } from "react-toastify";
+import UiContext from "../../../../store/ui/context/UiContext";
 import { UserAdress } from "../../../../types";
+import UsersApiClient from "../../services/UsersApiClient/UsersApiClient";
 
 const useUsers = () => {
   const studentsApiClient = useMemo(() => new UsersApiClient(), []);
+  const { showLoading, hideLoading } = useContext(UiContext);
 
   const getUsers = useCallback(async () => {
+    showLoading();
+
     try {
       const users = await studentsApiClient.getUsers();
 
+      hideLoading();
+
       return users;
-    } catch {
+    } catch (error) {
+      hideLoading();
       toast.error("Failed to load users");
     }
-  }, [studentsApiClient]);
+  }, [studentsApiClient, showLoading, hideLoading]);
 
   const addUser = useCallback(
     async (newUser: UserAdress) => {

@@ -6,12 +6,15 @@ import Button from "../../components/Button/Button";
 import Loading from "../../components/Loading/loading";
 import UsersTable from "../../components/UsersTable/UsersTable";
 import useUsers from "../../features/users/hooks/useUsers/useUsers";
+import UiContext from "../../store/ui/context/UiContext";
 import UsersContext from "../../store/users/context/UsersContext";
 import "./UsersPage.scss";
 
 const UsersPage = (): React.ReactElement => {
-  const { loadUsers, users } = useContext(UsersContext);
+  const { loadUsers } = useContext(UsersContext);
+  const { isLoading } = useContext(UiContext);
   const { syncUsers } = useUsers();
+
   useEffect(() => {
     (async () => {
       await loadUsers();
@@ -35,7 +38,8 @@ const UsersPage = (): React.ReactElement => {
           Sync
         </Button>
       </Suspense>
-      {users.length > 0 ? <UsersTable /> : <Loading />}
+      {!isLoading && <UsersTable />}
+      {isLoading && <Loading />}
     </main>
   );
 };
