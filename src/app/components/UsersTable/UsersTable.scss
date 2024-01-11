@@ -16,7 +16,7 @@
 
   &__head {
     text-align: left;
-    color: colors.$font-color-heading;
+    color: colors.$color-primary;
   }
 
   &__row {
@@ -31,14 +31,14 @@
   &__number {
     text-align: center;
     font-size: utils.pxToRem(18);
-    color: colors.$font-color-heading;
+    color: colors.$color-primary;
     min-width: 30px;
-    border-bottom: 1px solid colors.$font-color-heading;
+    border-bottom: 1px solid colors.$color-primary;
   }
 
   &__name {
     text-transform: uppercase;
-    border-bottom: 1px solid colors.$font-color-heading;
+    border-bottom: 1px solid colors.$color-primary;
   }
 
   &__email {
@@ -54,6 +54,6 @@
   &__footer-cell,
   &__name {
     color: colors.$font-color-text-light;
-    border-bottom: 1px solid colors.$font-color-heading;
+    border-bottom: 1px solid colors.$color-primary;
   }
 }

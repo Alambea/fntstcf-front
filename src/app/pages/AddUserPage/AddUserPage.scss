@@ -13,7 +13,7 @@
   &__title {
     justify-content: center;
     font-size: utils.pxToRem(25);
-    color: colors.$font-color-text-dark;
+    color: colors.$color-dark;
 
     @media (min-width: 700px) {
       font-size: utils.pxToRem(64);
