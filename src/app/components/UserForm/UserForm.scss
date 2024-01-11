@@ -26,10 +26,10 @@
 
   &__input {
     height: 50px;
-    border-bottom: 1px solid colors.$font-color-text-dark;
+    border-bottom: 1px solid colors.$color-dark;
 
     &:focus {
-      outline: 1px solid colors.$font-color-text-dark;
+      outline: 1px solid colors.$color-dark;
     }
   }
 }

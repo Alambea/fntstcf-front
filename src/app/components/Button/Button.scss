@@ -3,15 +3,18 @@
 
 .button {
   padding: 15px 60px;
-  color: colors.$font-color-heading;
   font-size: utils.pxToRem(16);
   text-transform: uppercase;
-  background-color: colors.$color-main-background;
-  border: 1px solid colors.$font-color-heading;
+
+  &--outlined {
+    color: colors.$color-primary;
+    background-color: colors.$color-background;
+    border: 1px solid colors.$color-primary;
+  }
 
   &:disabled {
     color: colors.$font-color-text-light;
-    background-color: colors.$color-primary-light;
+    background-color: colors.$color-background-light;
     border: none;
   }
 }

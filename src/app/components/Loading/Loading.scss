@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   inset: 0;
-  background: rgba(colors.$color-primary-light, 0.7);
+  background: rgba(colors.$color-background-light, 0.7);
 }
 
 @media (prefers-reduced-motion) {
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     font-size: utils.pxToRem(20);
-    color: colors.$font-color-heading;
+    color: colors.$color-primary;
     width: 200px;
   }
 }
@@ -25,7 +25,7 @@
   .loader {
     width: 48px;
     height: 48px;
-    border: 5px solid colors.$font-color-heading;
+    border: 5px solid colors.$color-primary;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
