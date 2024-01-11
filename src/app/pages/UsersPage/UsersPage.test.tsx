@@ -1,8 +1,8 @@
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import UsersRouter from "../../users/page";
 import { vi } from "vitest";
 import { NextFont } from "next/dist/compiled/@next/font";
-import { customRender } from "../../testUtils/customRender";
+import { wrapper } from "../../testUtils/providerWrapper";
 import UsersPage from "./UsersPage";
 import userEvent from "@testing-library/user-event";
 
@@ -17,7 +17,7 @@ describe("Given a Header component", () => {
     test("Then it should show a heading 'Users Control'", () => {
       const expectedHeading = /users control/i;
 
-      customRender(<UsersRouter />);
+      render(<UsersRouter />, { wrapper });
 
       const heading = screen.getByRole("heading", {
         level: 1,
@@ -30,7 +30,7 @@ describe("Given a Header component", () => {
     test("Then it should show a button 'Sync'", () => {
       const expectedButtonText = /sync/i;
 
-      customRender(<UsersRouter />);
+      render(<UsersRouter />, { wrapper });
 
       const button = screen.getByRole("button", {
         name: expectedButtonText,
@@ -44,17 +44,17 @@ describe("Given a Header component", () => {
         const buttonText = /sync/i;
         const expectedText = usersMock[1].name;
 
-        customRender(<UsersPage />);
+        render(<UsersPage />, { wrapper });
 
-        const syncButton = screen.getByRole("button", {
+        const syncButton = await screen.findByRole("button", {
           name: buttonText,
         });
 
         await userEvent.click(syncButton);
 
-        const heading = await screen.findByText(expectedText);
+        const nameCell = await screen.findByText(expectedText);
 
-        expect(heading).toBeInTheDocument();
+        expect(nameCell).toBeInTheDocument();
       });
     });
   });
