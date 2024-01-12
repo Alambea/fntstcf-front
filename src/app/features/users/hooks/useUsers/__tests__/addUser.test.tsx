@@ -5,6 +5,7 @@ import { vitest } from "vitest";
 import { server } from "../../../../../mocks/node";
 import { errorHandlers } from "../../../../../mocks/handlers";
 import { toast } from "react-toastify";
+import { wrapper } from "../../../../../testUtils/providerWrapper";
 
 describe("Given an addUser function", () => {
   const newUser = leanneMock;
@@ -17,7 +18,7 @@ describe("Given an addUser function", () => {
         result: {
           current: { addUser },
         },
-      } = renderHook(() => useUsers());
+      } = renderHook(() => useUsers(), { wrapper });
 
       const user = await addUser(newUser);
 
@@ -37,7 +38,7 @@ describe("Given an addUser function", () => {
         result: {
           current: { addUser },
         },
-      } = renderHook(() => useUsers());
+      } = renderHook(() => useUsers(), { wrapper });
 
       await addUser(newUser);
 
