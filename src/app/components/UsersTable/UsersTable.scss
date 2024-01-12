@@ -34,12 +34,15 @@
       height: 75px;
       min-width: 50px;
     }
+
+    > * {
+      padding: 0px 10px;
+    }
   }
 
   &__number {
     font-size: utils.pxToRem(18);
     color: colors.$color-primary;
-    padding: 0px 10px;
     border-bottom: 1px solid colors.$color-primary;
   }
 
