@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import AddUserPage from "./AddUserPage";
-import { wrapper } from "../../testUtils/providerWrapper";
+import { wrapper } from "../testUtils/providerWrapper";
 import React from "react";
 import { vi } from "vitest";
-import UiContext from "../../store/ui/context/UiContext";
+import UiContext from "../store/ui/context/UiContext";
+import AddUserPage from "./page";
 
 describe("Given a Header component", () => {
   describe("When it's redered", () => {

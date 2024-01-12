@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import UsersRouter from "../../users/page";
 import { vi } from "vitest";
 import { NextFont } from "next/dist/compiled/@next/font";
-import { wrapper } from "../../testUtils/providerWrapper";
-import UsersPage from "./UsersPage";
+import { wrapper } from "../testUtils/providerWrapper";
 import userEvent from "@testing-library/user-event";
 
-import { usersMock } from "../../mocks/usersMock";
+import { usersMock } from "../mocks/usersMock";
+import UsersPage from "./page";
 
 vi.mock("next/font/google", () => ({
   Kumar_One_Outline: vi.fn().mockReturnValue({} as NextFont),
@@ -17,7 +16,7 @@ describe("Given a Header component", () => {
     test("Then it should show a heading 'Users Control'", () => {
       const expectedHeading = /users control/i;
 
-      render(<UsersRouter />, { wrapper });
+      render(<UsersPage />, { wrapper });
 
       const heading = screen.getByRole("heading", {
         level: 1,
@@ -30,7 +29,7 @@ describe("Given a Header component", () => {
     test("Then it should show a button 'Sync'", () => {
       const expectedButtonText = /sync/i;
 
-      render(<UsersRouter />, { wrapper });
+      render(<UsersPage />, { wrapper });
 
       const button = screen.getByRole("button", {
         name: expectedButtonText,

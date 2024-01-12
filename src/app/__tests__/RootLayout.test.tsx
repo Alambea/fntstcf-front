@@ -3,8 +3,8 @@ import { userEvent } from "@testing-library/user-event";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { vi } from "vitest";
 import RootLayout from "../layout";
-import UsersRouter from "../users/page";
-import AddUserRouter from "../add-user/page";
+import UsersPage from "../users/page";
+import AddUserPage from "../add-user/page";
 import { NextRouter } from "next/router";
 import { leanneMock } from "../mocks/usersMock";
 import { server } from "../mocks/node";
@@ -49,7 +49,7 @@ describe("Given a RootLayout component", () => {
 
       render(
         <RootLayout>
-          <UsersRouter />
+          <UsersPage />
         </RootLayout>,
       );
 
@@ -74,7 +74,7 @@ describe("Given a RootLayout component", () => {
 
       render(
         <RootLayout>
-          <UsersRouter />
+          <UsersPage />
         </RootLayout>,
       );
 
@@ -98,7 +98,7 @@ describe("Given a RootLayout component", () => {
 
       render(
         <RootLayout>
-          <UsersRouter />
+          <UsersPage />
         </RootLayout>,
       );
 
@@ -121,7 +121,7 @@ describe("Given a RootLayout component", () => {
 
       render(
         <RootLayout>
-          <AddUserRouter />
+          <AddUserPage />
         </RootLayout>,
       );
 
@@ -155,7 +155,7 @@ describe("Given a RootLayout component", () => {
 
       render(
         <RootLayout>
-          <AddUserRouter />
+          <AddUserPage />
         </RootLayout>,
       );
 
