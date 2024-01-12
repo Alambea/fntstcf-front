@@ -5,6 +5,12 @@
   width: 100%;
   max-width: 750px;
 
+  @media (max-width: 500px) {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: block;
+  }
+
   &__title {
     justify-content: center;
     text-align: left;
@@ -26,13 +32,14 @@
     :first-child {
       text-align: center;
       height: 75px;
+      min-width: 50px;
     }
   }
 
   &__number {
     font-size: utils.pxToRem(18);
     color: colors.$color-primary;
-    min-width: 30px;
+    padding: 0px 10px;
     border-bottom: 1px solid colors.$color-primary;
   }
 
@@ -41,19 +48,12 @@
     border-bottom: 1px solid colors.$color-primary;
   }
 
-  &__email {
-    @media (max-width: 700px) {
-      min-width: 70px;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-  }
-
   &__email,
   &__username,
   &__footer-cell,
   &__name {
     color: colors.$font-color-text-light;
+    padding: 0px 10px;
     border-bottom: 1px solid colors.$color-primary;
   }
 }
