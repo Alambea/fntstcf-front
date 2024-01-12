@@ -4,6 +4,7 @@ import { vitest } from "vitest";
 import { server } from "../../../../../mocks/node";
 import { errorHandlers } from "../../../../../mocks/handlers";
 import { toast } from "react-toastify";
+import { wrapper } from "../../../../../testUtils/providerWrapper";
 
 describe("Given an syncUsers function", () => {
   describe("When it's called succesfully", () => {
@@ -17,7 +18,7 @@ describe("Given an syncUsers function", () => {
         result: {
           current: { syncUsers },
         },
-      } = renderHook(() => useUsers());
+      } = renderHook(() => useUsers(), { wrapper });
 
       await syncUsers();
 
@@ -34,7 +35,7 @@ describe("Given an syncUsers function", () => {
         result: {
           current: { syncUsers },
         },
-      } = renderHook(() => useUsers());
+      } = renderHook(() => useUsers(), { wrapper });
 
       const promise = syncUsers();
 

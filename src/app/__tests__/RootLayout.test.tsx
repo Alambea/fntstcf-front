@@ -7,6 +7,8 @@ import UsersRouter from "../users/page";
 import AddUserRouter from "../add-user/page";
 import { NextRouter } from "next/router";
 import { leanneMock } from "../mocks/usersMock";
+import { server } from "../mocks/node";
+import { errorHandlers } from "../mocks/handlers";
 
 vi.mock("next/font/google", () => ({
   Oswald: vi.fn().mockReturnValue({} as NextFont),
@@ -62,6 +64,53 @@ describe("Given a RootLayout component", () => {
       });
 
       expect(heading).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's redered in the path '/users', the user clicks on the 'Sync' button successfully", () => {
+    test("Then it should show a text 'Users successfully synchronized'", async () => {
+      const expectedFeedbackText = /users successfully synchronized/i;
+      const buttonText = /sync/i;
+
+      render(
+        <RootLayout>
+          <UsersRouter />
+        </RootLayout>,
+      );
+
+      const syncButton = screen.getByRole("button", {
+        name: buttonText,
+      });
+
+      await userEvent.click(syncButton);
+
+      const feedbackText = await screen.findByText(expectedFeedbackText);
+
+      expect(feedbackText).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's redered in the path '/users', the user clicks on the 'Sync' button and there's an error", () => {
+    test("Then it should show a text 'Failed to synchronize users'", async () => {
+      server.resetHandlers(...errorHandlers);
+      const expectedFeedbackText = /failed to synchronize users/i;
+      const buttonText = /sync/i;
+
+      render(
+        <RootLayout>
+          <UsersRouter />
+        </RootLayout>,
+      );
+
+      const syncButton = screen.getByRole("button", {
+        name: buttonText,
+      });
+
+      await userEvent.click(syncButton);
+
+      const feedbackText = await screen.findByText(expectedFeedbackText);
+
+      expect(feedbackText).toBeInTheDocument();
     });
   });
 

@@ -15,6 +15,7 @@
   }
 
   &__head {
+    font-size: utils.pxToRem(20);
     text-align: left;
     color: colors.$color-primary;
   }
@@ -29,7 +30,6 @@
   }
 
   &__number {
-    text-align: center;
     font-size: utils.pxToRem(18);
     color: colors.$color-primary;
     min-width: 30px;

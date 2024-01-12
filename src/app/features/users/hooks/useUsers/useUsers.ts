@@ -25,28 +25,38 @@ const useUsers = () => {
 
   const addUser = useCallback(
     async (newUser: UserAdress) => {
+      showLoading();
+
       try {
         const user = await studentsApiClient.addUser(newUser);
 
         toast.success("User successfully added");
 
+        hideLoading();
+
         return user;
       } catch (error) {
+        hideLoading();
         toast.error("Failed to add user");
       }
     },
-    [studentsApiClient],
+    [studentsApiClient, showLoading, hideLoading],
   );
 
   const syncUsers = useCallback(async () => {
+    showLoading();
+
     try {
       await studentsApiClient.syncUsers();
 
+      hideLoading();
+
       toast.success("Users successfully synchronized");
     } catch (error) {
+      hideLoading();
       throw new Error("Failed to synchronize users");
     }
-  }, [studentsApiClient]);
+  }, [studentsApiClient, showLoading, hideLoading]);
 
   return { getUsers, addUser, syncUsers };
 };
