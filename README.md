@@ -2,7 +2,7 @@
 
 Userfy is a web application designed to help you control users based on the existing users from the API https://jsonplaceholder.typicode.com/users, it allows you to create new users too.
 
-https://fntstcf-ana-lambea.vercel.app/users
+https://userfy-next.vercel.app/users
 
 ![Userfy Users](https://cdn.discordapp.com/attachments/1145135177534812231/1195304710379421796/Captura_de_pantalla_2024-01-12_104808.png)
 ![Userfy Loader](https://cdn.discordapp.com/attachments/1145135177534812231/1195305155130818580/Captura_de_pantalla_2024-01-12_105548.png)
